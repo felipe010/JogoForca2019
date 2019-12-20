@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/sprite.css">
+    <link rel="stylesheet" href="./css/lacuna.css">
     <title>Jogo da Forca</title>
 </head>
 <body>
     <div class="box-principal">
         <!--Onde vai aparecer a forca-->
-        <div class="stripe"></div>
+        <div id="sprite" class="sprite"></div>
         <!--Exibição das caixas indicando a quantidade de letras-->
         <div class="lacunas"></div>
 
@@ -18,4 +20,9 @@
         </div>
     </div>
 </body>
+<script src="/js/sprite.js"></script>
+<script>
+    let spriteclass = document.getElementById('sprite');
+    let sprite = createSprite(spriteclass);
+</script>
 </html>
