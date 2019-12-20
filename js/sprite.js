@@ -12,10 +12,18 @@ function createSprite(selector) {
 
     el.classList.add(frames[current])
     
-    function nextFrame() {
-        el.classList.remove(frames[current])
-        el.classList.add(frames[++current])
-        console.log(el);
+    function moveFrame(from, to) {
+        /*from -> a partir de
+            to -> para */
+        el.classList.remove(from);
+        el.classList.add(to);
     }
-    nextFrame()
+
+    function nextFrame() {
+        moveFrame(frames[current], frames[++current]);
+    }
+    
+    return {
+        nextFrame: nextFrame
+    }
 }

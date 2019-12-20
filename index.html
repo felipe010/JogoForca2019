@@ -20,9 +20,16 @@
         </div>
     </div>
 </body>
-<script src="/js/sprite.js"></script>
+<script src="./js/sprite.js"></script>
 <script>
     let spriteclass = document.getElementById('sprite');
     let sprite = createSprite(spriteclass);
+    
+    setInterval(function () {
+        sprite.nextFrame();
+        contador++;
+    }, 500);
+    
+    var contador = 0;
 </script>
 </html>
