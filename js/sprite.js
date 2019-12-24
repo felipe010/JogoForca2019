@@ -1,3 +1,5 @@
+"use strict"
+
 function createSprite(selector) {
     
     let el = selector;
