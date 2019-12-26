@@ -1,6 +1,6 @@
 "use strict"
 
-function createSprite(selector) {
+let createSprite = function(selector) {
     
     let el = selector;
 
@@ -14,24 +14,24 @@ function createSprite(selector) {
 
     el.classList.add(frames[current])
     
-    function moveFrame(from, to) {
+    let moveFrame = function(from, to) {
         /*from -> a partir de
             to -> para */
         el.classList.remove(from);
         el.classList.add(to);
-    }
+    };
 
-    function hasNext() {
+    let hasNext = function() {
         return current + 1 <= last;
-    }
+    };
 
-    function nextFrame() {
+    let nextFrame = function() {
         if (hasNext()) {
             moveFrame(frames[current], frames[++current]);
         }
-    }
+    };
     
     return {
         nextFrame: nextFrame
     }
-}
+};
