@@ -5,11 +5,7 @@ let criaJogo = function () {
     let lacunas = [];
     
     let criaLacunas = function () {
-        let arrayLacunas = palavraSecreta.split("");
-        arrayLacunas.forEach(element => {
-            element = ""
-            lacunas.push(element)
-        });
+        lacunas = Array(palavraSecreta.length).fill('');
     };
 
     let proximaEtapa = function () {
