@@ -2,21 +2,28 @@ let criaJogo = function () {
     
     let palavraSecreta = "";
     let etapaAtual = 1;
+    let lacunas = [];
     
-    let setPalavraSecreta = function(palavra) {
-        palavraSecreta = palavra;
-        etapaAtual++
-    }
-
-    let getLacunas = function () {
-        let arraylacunaslimpo = []
+    let criaLacunas = function () {
         let arrayLacunas = palavraSecreta.split("");
         arrayLacunas.forEach(element => {
             element = ""
-            arraylacunaslimpo.push(element)
+            lacunas.push(element)
         });
+    };
+
+    let proximaEtapa = function () {
         etapaAtual++
-        return arraylacunaslimpo;
+    }
+
+    let setPalavraSecreta = function(palavra) {
+        palavraSecreta = palavra;
+        criaLacunas();
+        proximaEtapa();
+    }
+
+    let getLacunas = function () {
+        return lacunas;
     }
 
     let getEtapa = function () {
