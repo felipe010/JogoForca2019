@@ -24,12 +24,16 @@
 <script>
     let spriteclass = document.getElementById('sprite');
     let sprite = createSprite(spriteclass);
-    
-    setInterval(function () {
         sprite.nextFrame();
-        contador++;
-    }, 500);
-    
-    var contador = 0;
+        sprite.nextFrame();
+        console.log(sprite.isFinished());
+        sprite.nextFrame();
+        sprite.nextFrame();
+        sprite.nextFrame();
+        sprite.nextFrame();
+        sprite.nextFrame();
+        sprite.nextFrame();
+        sprite.nextFrame();
+        console.log(sprite.isFinished());        
 </script>
 </html>

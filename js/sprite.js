@@ -31,7 +31,20 @@ let createSprite = function(selector) {
         }
     };
     
+    let reset = function (){
+        for (let index = 0; index < current; index++) {
+           el.classList.remove(frames[current])
+        }
+        current = 0;
+    };
+
+    let isFinished = function(){
+       return current == last ? true : false;
+    }  
+    
     return {
-        nextFrame: nextFrame
+        nextFrame: nextFrame,
+        reset: reset,
+        isFinished: isFinished
     }
 };
