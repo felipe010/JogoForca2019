@@ -48,11 +48,7 @@ let criaJogo = function (sprite) {
     };
 
     let perdeu = function () {
-        let frame9 = document.getElementsByClassName('frame9');
-        if (frame9.length == 1) {
-            return true
-        }
-        return false
+        return sprite.isFinished();
     };
 
     let ganhouOuPerdeu = function () {
