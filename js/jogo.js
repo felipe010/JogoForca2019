@@ -39,10 +39,44 @@ let criaJogo = function (sprite) {
         return etapaAtual
     }
 
+    let ganhou = function () {
+        if (lacunas.findIndex(e => e != "") == 0 && perdeu() == false) {
+            return true
+        }else{
+            return false
+        }
+    };
+
+    let perdeu = function () {
+        let frame9 = document.getElementsByClassName('frame9');
+        if (frame9.length == 1) {
+            return true
+        }
+        return false
+    };
+
+    let ganhouOuPerdeu = function () {
+        if (perdeu() || ganhou()) {
+            return true;
+        }
+        return false
+    };
+
+    let reinicia = function () {
+        etapaAtual = 1;
+        palavraSecreta = '';
+        lacunas = [];        
+        sprite.reset();
+    };
+
     return {
         setPalavraSecreta: setPalavraSecreta,
         getLacunas: getLacunas,
         getEtapa: getEtapa,
-        processaChute: processaChute
+        processaChute: processaChute,
+        ganhou: ganhou,
+        perdeu: perdeu,
+        ganhouOuPerdeu: ganhouOuPerdeu, 
+        reinicia: reinicia
     }
 }
