@@ -22,9 +22,13 @@
 </body>
 <script src="./js/sprite.js"></script>
 <script src="./js/jogo.js"></script>
+<script src="./js/controller.js"></script>
 <script>
     let spriteclass = document.getElementById('sprite');
-    let sprite = createSprite(spriteclass);
-    let jogo = criaJogo(sprite);         
+    criaController(
+    criaJogo(
+        createSprite(spriteclass)
+    )
+    ).inicia();
 </script>
 </html>
