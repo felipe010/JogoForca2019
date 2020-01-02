@@ -40,11 +40,11 @@ let criaJogo = function (sprite) {
     }
 
     let ganhou = function () {
-        if (lacunas.findIndex(e => e != "") == 0 && perdeu() == false) {
-            return true
-        }else{
-            return false
-        }
+        return lacunas.length 
+            ? !lacunas.some(function(lacuna) {
+                return lacuna == '';
+            })
+            : false;
     };
 
     let perdeu = function () {
