@@ -1,43 +1,46 @@
 var criaController = function (jogo) {
 
-    var entrada = document.getElementById('entrada').value;
-    var lacunas = document.getElementsByClassName('lacunas');
+    let entrada = document.getElementById('entrada');
+    let lacunas = document.querySelector('.lacunas');
 
-
-    var exibeLacunas = function () {
-        console.log('falta implementar');
+    let exibeLacunas = function () {
+        for (let index = 0; index < entrada.value.length; index++) {
+            let li = document.createElement("li")
+            li.classList.add("lacuna")
+            lacunas.appendChild(li)
+        }
     };
 
-    // muda o texto do placeHolder do campo de entrada    
-    var mudaPlaceHolder = function (texto) {
-
-        console.log('falta implementar');
+    let mudaPlaceHolder = function (texto) {
+        entrada.value = '';
+        entrada.placeholder = texto;
     };
 
-    // passa para jogo.setPalavraSecreta() o valor digitado pelo jogador e chama o a função `exibeLacunas()` e `mudaPlaceHolder()` definidas no controller. 
-    var guardaPalavraSecreta = function () {
-
-        console.log('falta implementar');
+    let guardaPalavraSecreta = function () {
+        jogo.setPalavraSecreta(entrada.value);
     };
 
-    // faz a associação do evento keypress para capturar a entrada do usuário toda vez que ele teclar ENTER
-    var inicia = function () {
+    let inicia = function () {
 
         document.addEventListener('keydown', (event) => {
-        if (event.which == 13) {
-            console.log('apertou o ENTER');
-            
+        if (event.which == 13) {            
                 switch (jogo.getEtapa()) {
                     case 1:
-                        alert('etapa 1 - falta implementar');
+                        guardaPalavraSecreta()
+                        exibeLacunas();
+                        mudaPlaceHolder('Insira um chute');
                         break;
                     case 2:
-                        alert('etapa 2 - falta implementar');
+                        jogo.processaChute(entrada.value)
+                        entrada.value = ""
+                        console.log(`Ganhou ${jogo.ganhou()}`);
+                        console.log(`Perdeu ${jogo.perdeu()}`);
+                        console.log(`Ganhou ou Perdeu ${jogo.ganhouOuPerdeu()}`);
+                        console.log(jogo.getLacunas());
                         break;
                 }
             }
         });
     };
-
     return { inicia: inicia };
 };
