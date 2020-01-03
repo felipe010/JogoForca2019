@@ -13,7 +13,7 @@
         <!--Onde vai aparecer a forca-->
         <div id="sprite" class="sprite"></div>
         <!--Exibição das caixas indicando a quantidade de letras-->
-        <div class="lacunas"></div>
+        <ul class="lacunas"></ul>
 
         <div class="campotexto">
             <input id="entrada" class="entrada" placeholder="Palavra secreta" autofocus>
@@ -26,9 +26,9 @@
 <script>
     let spriteclass = document.getElementById('sprite');
     criaController(
-    criaJogo(
-        createSprite(spriteclass)
-    )
+        criaJogo(
+            createSprite(spriteclass)
+        )
     ).inicia();
 </script>
 </html>
