@@ -13,13 +13,19 @@ let criaJogo = function (sprite) {
     }
 
     let setPalavraSecreta = function(palavra) {
+        if (!palavra.trim()) {
+            throw Error('Palavra secreta inválida.')
+        }
         palavraSecreta = palavra;
         criaLacunas();
         proximaEtapa();
     }
 
     let processaChute = function(chute) {
-         let chuteTrim = chute.trim(),
+        if (!chute.trim()) {
+            throw Error('Chute inválido!')
+        }
+        let chuteTrim = chute.trim(),
              letra = chuteTrim.split("")[0],
              resultado,
              acertou = false;

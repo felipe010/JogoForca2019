@@ -19,26 +19,34 @@ var criaController = function (jogo) {
     };
 
     let guardaPalavraSecreta = function () {
-        jogo.setPalavraSecreta(entrada.value);
-        mudaPlaceHolder("Insira um chute!")
-        exibeLacunas();
+        try {
+            jogo.setPalavraSecreta(entrada.value);
+            mudaPlaceHolder("Insira um chute!")
+            exibeLacunas();
+        } catch (err) {
+            alert(err.message)
+        }
     };
 
     let leChute = function (chute) {
-        jogo.processaChute(chute)
-        entrada.value = "";
-        exibeLacunas()
-        if (jogo.ganhouOuPerdeu() == true) {
-            setTimeout(function () {
-                if (jogo.ganhou() == true) {
-                alert("Você ganhou, meus parabéns!")
-                }
-                if (jogo.perdeu() == true) {
-                    alert("Você perdeu!")
-                }
-                jogo.reinicia();
-                reinicia();
-            }, 200);
+        try {
+            jogo.processaChute(chute)
+            entrada.value = "";
+            exibeLacunas()
+            if (jogo.ganhouOuPerdeu() == true) {
+                setTimeout(function () {
+                    if (jogo.ganhou() == true) {
+                    alert("Você ganhou, meus parabéns!")
+                    }
+                    if (jogo.perdeu() == true) {
+                        alert("Você perdeu!")
+                    }
+                    jogo.reinicia();
+                    reinicia();
+                }, 200);
+            }
+        } catch (err) {
+           alert(err.message) 
         }
     }
 
