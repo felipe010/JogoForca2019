@@ -28,7 +28,26 @@ var criaController = function (jogo) {
         jogo.processaChute(chute)
         entrada.value = "";
         exibeLacunas()
+        if (jogo.ganhouOuPerdeu() == true) {
+            if (jogo.ganhou() == true) {
+            alert("Você ganhou, meus parabéns!")
+            }
+            if (jogo.perdeu() == true) {
+                alert("Você perdeu!")
+            }
+            jogo.reinicia();
+            reinicia();
+        }
     }
+
+    let reinicia = function () {
+        // limpa todas as lacunas
+        lacunas.innerHTML = "";
+        // volta para a mensagem da etapa 1
+        mudaPlaceHolder('Palavra secreta');
+        // solita ao jogo que reinicia 
+        jogo.reinicia();
+    };
 
     let inicia = function () {
 
@@ -36,13 +55,10 @@ var criaController = function (jogo) {
         if (event.which == 13) {            
                 switch (jogo.getEtapa()) {
                     case 1:
-                        guardaPalavraSecreta()
+                        guardaPalavraSecreta();
                         break;
                     case 2:
-                        leChute(entrada.value)                        
-                        console.log(`Ganhou ${jogo.ganhou()}`);
-                        console.log(`Perdeu ${jogo.perdeu()}`);
-                        console.log(`Ganhou ou Perdeu ${jogo.ganhouOuPerdeu()}`);
+                        leChute(entrada.value);                      
                         break;
                 }
             }
