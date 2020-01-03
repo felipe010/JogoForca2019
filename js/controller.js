@@ -4,10 +4,12 @@ var criaController = function (jogo) {
     let lacunas = document.querySelector('.lacunas');
 
     let exibeLacunas = function () {
-        for (let index = 0; index < entrada.value.length; index++) {
+        lacunas.innerHTML = ""
+        for (let index = 0; index < jogo.getLacunas().length; index++) {
             let li = document.createElement("li")
-            li.classList.add("lacuna")
-            lacunas.appendChild(li)
+            li.classList.add("lacuna");
+            li.innerHTML = jogo.getLacunas()[index];
+            lacunas.appendChild(li);
         }
     };
 
@@ -18,7 +20,15 @@ var criaController = function (jogo) {
 
     let guardaPalavraSecreta = function () {
         jogo.setPalavraSecreta(entrada.value);
+        mudaPlaceHolder("Insira um chute!")
+        exibeLacunas();
     };
+
+    let leChute = function (chute) {
+        jogo.processaChute(chute)
+        entrada.value = "";
+        exibeLacunas()
+    }
 
     let inicia = function () {
 
@@ -27,16 +37,12 @@ var criaController = function (jogo) {
                 switch (jogo.getEtapa()) {
                     case 1:
                         guardaPalavraSecreta()
-                        exibeLacunas();
-                        mudaPlaceHolder('Insira um chute');
                         break;
                     case 2:
-                        jogo.processaChute(entrada.value)
-                        entrada.value = ""
+                        leChute(entrada.value)                        
                         console.log(`Ganhou ${jogo.ganhou()}`);
                         console.log(`Perdeu ${jogo.perdeu()}`);
                         console.log(`Ganhou ou Perdeu ${jogo.ganhouOuPerdeu()}`);
-                        console.log(jogo.getLacunas());
                         break;
                 }
             }
