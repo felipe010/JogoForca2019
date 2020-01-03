@@ -29,14 +29,16 @@ var criaController = function (jogo) {
         entrada.value = "";
         exibeLacunas()
         if (jogo.ganhouOuPerdeu() == true) {
-            if (jogo.ganhou() == true) {
-            alert("Você ganhou, meus parabéns!")
-            }
-            if (jogo.perdeu() == true) {
-                alert("Você perdeu!")
-            }
-            jogo.reinicia();
-            reinicia();
+            setTimeout(function () {
+                if (jogo.ganhou() == true) {
+                alert("Você ganhou, meus parabéns!")
+                }
+                if (jogo.perdeu() == true) {
+                    alert("Você perdeu!")
+                }
+                jogo.reinicia();
+                reinicia();
+            }, 200);
         }
     }
 
