@@ -1,0 +1,35 @@
+.campotexto {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.entrada {
+    width: 200px;
+    display: flex;
+   justify-content: center;
+}
+
+#titulo {
+    display: flex; 
+    justify-content: center;  
+}
+
+img {
+    max-width:200px;
+    max-height:150px;
+    width: auto;
+    height: auto;
+}
+
+h1 {
+    margin: 20px;
+    padding: 20px;
+}
+
+.lacunas {
+   display: flex;
+   justify-content: center;
+}
