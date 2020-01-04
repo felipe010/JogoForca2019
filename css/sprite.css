@@ -3,6 +3,8 @@
     width: 162.6px;
     height: 160.5px;
     margin: 10% auto;
+    border: solid black;
+    border-radius: 0.5em;
 }
 
 .frame1 { background-position: 0 0;}
