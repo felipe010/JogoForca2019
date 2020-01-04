@@ -16,6 +16,16 @@ let criaJogo = function (sprite) {
         if (!palavra.trim()) {
             throw Error('Palavra secreta inválida.')
         }
+        let ok = false;
+        let arrTest = palavra.split('');
+        arrTest.forEach(element => {
+            if (element == ' ') {
+             ok = true   
+            }
+        });
+        if (ok == true) {
+            throw Error('Palavra secreta não pode ser uma frase ou ter espaços entre palavras, precisa ser uma unica palavra!')
+        }
         palavraSecreta = palavra.trim();
         criaLacunas();
         proximaEtapa();
