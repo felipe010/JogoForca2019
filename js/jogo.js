@@ -16,7 +16,7 @@ let criaJogo = function (sprite) {
         if (!palavra.trim()) {
             throw Error('Palavra secreta inválida.')
         }
-        palavraSecreta = palavra;
+        palavraSecreta = palavra.trim();
         criaLacunas();
         proximaEtapa();
     }
